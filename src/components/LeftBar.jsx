@@ -72,9 +72,6 @@ function LeftBar({ onDayChange, onWeatherDataChange }) {
         timezone: timezone,
       };
 
-      console.log(sunrise);
-      console.log(sunset);
-      
       if (onWeatherDataChange) {
         onWeatherDataChange(weatherData);
       }
