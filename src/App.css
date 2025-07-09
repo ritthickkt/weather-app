@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap');
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #34abeb;
+}
+
+.weatherInformation {
+  height: 100vh;
+  width: 100%;
+  z-index: -1;
+  align-items: center;
+  justify-content: center;
+}
+
+.day-mode {
+  background-color: #6094e6;
+  background-image: url('./assets/sunny.png');
+  background-size: 1600px 948px;
+  background-position: -700px 0px;
+  background-repeat: no-repeat;
+}
+
+.night-mode {
+  background-image: url('./assets/stars.png');
+  background-color: #1e3559
+}
+
+.detailedinformation {
+  background-color: #d7ebf5;
+  height: 100vh;
+  padding: 40px;
+  padding-left: 80px;
+  border-top-left-radius: 90px;
+  border-bottom-left-radius: 90px;
+  width: 1250px;
+  box-shadow: grey 0px 0px 10px;;
+}
+
+.components {
+  display: grid;
+  position: fixed;
+  grid-template-columns: repeat(2, 1fr);
+  height: 100%;
+  width: 100%;
+}
