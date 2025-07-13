@@ -47,10 +47,6 @@ function HourlyWeather({ weatherData }) {
           sunrise = new Date(weatherData.daily.sunrise[0]);
           sunset = new Date(weatherData.daily.sunset[0]);
         }
-        
-        console.log(`Current Time: ${currentTime}`);
-        console.log(`Sunrise: ${sunrise}`);
-        console.log(`Sunset: ${sunset}`);
         // Check if current time is between sunrise and sunset
         const isDayTime = currentTime >= sunrise && currentTime <= sunset;
 

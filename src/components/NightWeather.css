@@ -1,0 +1,364 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.night-sky {
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0c0c2e 0%, #1a1a3a 25%, #2d1b69 50%, #1e3c72 75%, #0f2027 100%);
+    background-size: 400% 400%;
+    animation: nightSkyGradient 25s ease infinite;
+    position: relative;
+}
+
+@keyframes nightSkyGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.moon {
+    position: absolute;
+    top: 60%;
+    left: 8%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle at 30% 30%, #f8f8ff 0%, #e6e6fa 70%, #d3d3d3 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 40px rgba(248, 248, 255, 0.6), 0 0 80px rgba(248, 248, 255, 0.3);
+    animation: moonGlow 6s ease-in-out infinite;
+}
+
+@keyframes moonGlow {
+    0%, 100% { 
+        box-shadow: 0 0 40px rgba(248, 248, 255, 0.6), 0 0 80px rgba(248, 248, 255, 0.3);
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 0 60px rgba(248, 248, 255, 0.8), 0 0 120px rgba(248, 248, 255, 0.4);
+        transform: scale(1.05);
+    }
+}
+
+.moon::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 15%;
+    width: 8px;
+    height: 8px;
+    background: rgba(192, 192, 192, 0.8);
+    border-radius: 50%;
+    box-shadow: 
+        15px 10px 0 2px rgba(192, 192, 192, 0.6),
+        -5px 25px 0 1px rgba(192, 192, 192, 0.4),
+        20px 35px 0 1px rgba(192, 192, 192, 0.5);
+}
+
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: starTwinkle 3s ease-in-out infinite;
+}
+
+@keyframes starTwinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+.star:nth-child(1) { width: 2px; height: 2px; top: 15%; left: 10%; animation-delay: 0s; }
+.star:nth-child(2) { width: 1px; height: 1px; top: 20%; left: 25%; animation-delay: 1s; }
+.star:nth-child(3) { width: 3px; height: 3px; top: 10%; left: 40%; animation-delay: 2s; }
+.star:nth-child(4) { width: 2px; height: 2px; top: 25%; left: 60%; animation-delay: 0.5s; }
+.star:nth-child(5) { width: 1px; height: 1px; top: 12%; left: 75%; animation-delay: 1.5s; }
+.star:nth-child(6) { width: 2px; height: 2px; top: 30%; left: 85%; animation-delay: 2.5s; }
+.star:nth-child(7) { width: 1px; height: 1px; top: 18%; left: 90%; animation-delay: 3s; }
+.star:nth-child(8) { width: 3px; height: 3px; top: 8%; left: 55%; animation-delay: 0.8s; }
+.star:nth-child(9) { width: 2px; height: 2px; top: 35%; left: 30%; animation-delay: 1.8s; }
+.star:nth-child(10) { width: 1px; height: 1px; top: 5%; left: 80%; animation-delay: 2.2s; }
+
+.shooting-star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: shootingStar 4s linear infinite;
+}
+
+@keyframes shootingStar {
+    0% {
+        transform: translateX(-100px) translateY(0px);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+        box-shadow: 0 0 10px white, -20px 0 20px white, -40px 0 30px rgba(255,255,255,0.5);
+    }
+    90% {
+        opacity: 1;
+        box-shadow: 0 0 10px white, -20px 0 20px white, -40px 0 30px rgba(255,255,255,0.5);
+    }
+    100% {
+        transform: translateX(calc(100vw + 100px)) translateY(200px);
+        opacity: 0;
+    }
+}
+
+.shooting-star1 {
+    top: 20%;
+    left: -100px;
+    animation-delay: 0s;
+}
+
+.shooting-star2 {
+    top: 40%;
+    left: -100px;
+    animation-delay: 8s;
+}
+
+.northern-lights {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.aurora {
+    position: absolute;
+    width: 100%;
+    height: 40%;
+    top: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 255, 127, 0.1) 0%,
+        rgba(0, 191, 255, 0.1) 30%,
+        rgba(138, 43, 226, 0.1) 60%,
+        transparent 100%
+    );
+    animation: auroraWave 12s ease-in-out infinite;
+}
+
+@keyframes auroraWave {
+    0%, 100% {
+        background: linear-gradient(
+            180deg,
+            rgba(0, 255, 127, 0.1) 0%,
+            rgba(0, 191, 255, 0.1) 30%,
+            rgba(138, 43, 226, 0.1) 60%,
+            transparent 100%
+        );
+    }
+    50% {
+        background: linear-gradient(
+            180deg,
+            rgba(138, 43, 226, 0.2) 0%,
+            rgba(0, 255, 127, 0.15) 30%,
+            rgba(0, 191, 255, 0.15) 60%,
+            transparent 100%
+        );
+    }
+}
+
+.night-clouds {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.night-cloud {
+    position: absolute;
+    background: linear-gradient(135deg, rgba(47, 47, 79, 0.8) 0%, rgba(25, 25, 55, 0.6) 100%);
+    border-radius: 50px;
+    opacity: 0.7;
+    animation: nightCloudFloat 30s linear infinite;
+}
+
+.night-cloud::before,
+.night-cloud::after {
+    content: '';
+    position: absolute;
+    background: inherit;
+    border-radius: 50px;
+}
+
+.night-cloud1 {
+    width: 90px;
+    height: 45px;
+    top: 25%;
+    left: -120px;
+    animation-delay: 0s;
+}
+
+.night-cloud1::before {
+    width: 55px;
+    height: 55px;
+    top: -28px;
+    left: 12px;
+}
+
+.night-cloud1::after {
+    width: 65px;
+    height: 45px;
+    top: -18px;
+    right: 12px;
+}
+
+.night-cloud2 {
+    width: 70px;
+    height: 35px;
+    top: 35%;
+    left: -90px;
+    animation-delay: 10s;
+}
+
+.night-cloud2::before {
+    width: 45px;
+    height: 45px;
+    top: -23px;
+    left: 8px;
+}
+
+.night-cloud2::after {
+    width: 55px;
+    height: 35px;
+    top: -13px;
+    right: 8px;
+}
+
+@keyframes nightCloudFloat {
+    0% { transform: translateX(-120px); }
+    100% { transform: translateX(calc(100vw + 120px)); }
+}
+
+.fireflies {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.firefly {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: #ffff00;
+    border-radius: 50%;
+    animation: fireflyFloat 8s ease-in-out infinite;
+    box-shadow: 0 0 10px #ffff00, 0 0 20px #ffff00;
+}
+
+@keyframes fireflyFloat {
+    0%, 100% { 
+        opacity: 0.3;
+        transform: translateY(0px) translateX(0px);
+    }
+    25% { 
+        opacity: 1;
+        transform: translateY(-20px) translateX(15px);
+    }
+    50% { 
+        opacity: 0.6;
+        transform: translateY(-10px) translateX(-10px);
+    }
+    75% { 
+        opacity: 1;
+        transform: translateY(-25px) translateX(20px);
+    }
+}
+
+.firefly1 {
+    top: 60%;
+    left: 15%;
+    animation-delay: 0s;
+}
+
+.firefly2 {
+    top: 70%;
+    left: 35%;
+    animation-delay: 2s;
+}
+
+.firefly3 {
+    top: 65%;
+    left: 55%;
+    animation-delay: 4s;
+}
+
+.firefly4 {
+    top: 75%;
+    left: 75%;
+    animation-delay: 1s;
+}
+
+.firefly5 {
+    top: 80%;
+    left: 25%;
+    animation-delay: 3s;
+}
+
+.firefly6 {
+    top: 55%;
+    left: 85%;
+    animation-delay: 5s;
+}
+
+.mist {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(
+        to top,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.05) 50%,
+        transparent 100%
+    );
+    animation: mistFlow 15s ease-in-out infinite;
+}
+
+@keyframes mistFlow {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.1; }
+}
+
+.content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: #e6e6fa;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.content h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    animation: textShimmer 4s ease-in-out infinite;
+}
+
+@keyframes textShimmer {
+    0%, 100% { 
+        color: #e6e6fa;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    50% { 
+        color: #f8f8ff;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5), 0 0 20px rgba(248,248,255,0.3);
+    }
+}

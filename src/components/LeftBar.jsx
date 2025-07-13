@@ -68,6 +68,10 @@ function LeftBar({ onDayChange, onWeatherDataChange }) {
           sunset: [...Array(sunset.valuesInt64Length())].map(
             (_, i) => new Date((Number(sunset.valuesInt64(i)) + utcOffsetSeconds) * 1000)
           ),
+          rainSum: daily.variables(3).valuesArray(),
+          snowfallSum: daily.variables(4).valuesArray(),
+          showersSum: daily.variables(5).valuesArray(),
+          precipitationSum: daily.variables(6).valuesArray()
         },
         timezone: timezone,
       };

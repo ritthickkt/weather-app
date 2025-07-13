@@ -3,6 +3,9 @@ import WelcomeMessage from './components/WelcomeMessage'
 import LeftBar from './components/LeftBar'
 import HourlyWeather from './components/HourlyWeather'
 import './App.css'
+import SunnyWeather from './components/SunnyWeather'
+import NightWeather from './components/NightWeather'
+import SevenDayForecast from './components/SevenDayForecast'
 import { motion } from "motion/react"
 
 function App() {
@@ -20,9 +23,27 @@ function App() {
     if (isDay === 'Night') return 'night-mode'; 
   }
 
+  const renderBackgroundComponent = () => {
+    if (isDay === 'Day') {
+      return (
+        <div className="background-component">
+          <SunnyWeather />
+        </div>
+      );
+    } else if (isDay === 'Night') {
+      return (
+        <div className="background-component">
+          <NightWeather />
+        </div>
+      );
+    }
+    return null;
+  };
+
   return (
     <>
-      <motion.div className={`components ${getBackgroundClass()}`}>
+      {renderBackgroundComponent()}
+      <motion.div className={'components'}>
         <motion.div className={`weatherInformation`}>
           <LeftBar 
             onDayChange={handleDayChange}
@@ -32,6 +53,7 @@ function App() {
         <div className='detailedinformation'>
           <WelcomeMessage />
           <HourlyWeather weatherData={weatherData}/>
+          <SevenDayForecast weatherData={weatherData}/>
         </div>
       </motion.div>
     </>

@@ -7,28 +7,27 @@
 
 :root {
   font-family: 'Montserrat', sans-serif;
-  background-color: #34abeb;
 }
 
 .weatherInformation {
   height: 100vh;
-  width: 100%;
-  z-index: -1;
+  width: 20%;
   align-items: center;
   justify-content: center;
 }
 
-.day-mode {
-  background-color: #6094e6;
-  background-image: url('./assets/sunny.png');
-  background-size: 1600px 948px;
-  background-position: -700px 0px;
-  background-repeat: no-repeat;
+.background-component {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
-.night-mode {
-  background-image: url('./assets/stars.png');
-  background-color: #1e3559
+.leftbar-container {
+  position: relative;
+  z-index: 1;
 }
 
 .detailedinformation {
@@ -39,7 +38,7 @@
   border-top-left-radius: 90px;
   border-bottom-left-radius: 90px;
   width: 1250px;
-  box-shadow: grey 0px 0px 10px;;
+  box-shadow: grey 0px 0px 10px;
 }
 
 .components {
